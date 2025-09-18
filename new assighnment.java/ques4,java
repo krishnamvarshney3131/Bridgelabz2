@@ -1,0 +1,47 @@
+import java.util.*;
+
+class Product {
+    String name;
+    Product(String name) { this.name = name; }
+}
+
+class Order {
+    int id;
+    List<Product> products = new ArrayList<>();
+    Order(int id) { this.id = id; }
+    void addProduct(Product p) { products.add(p); }
+    void showProducts() {
+        System.out.println("Products in Order " + id + ":");
+        for (Product p : products) System.out.println(p.name);
+    }
+}
+
+class Customer {
+    String name;
+    List<Order> orders = new ArrayList<>();
+    Customer(String name) { this.name = name; }
+    void placeOrder(Order o) { orders.add(o); }
+}
+
+public class Problem4 {
+    public static void main(String[] args) {
+        Customer c1 = new Customer("Arjun");
+
+        Product p1 = new Product("Laptop");
+        Product p2 = new Product("Phone");
+        Product p3 = new Product("Headphones");
+
+        Order o1 = new Order(101);
+        o1.addProduct(p1);
+        o1.addProduct(p2);
+
+        Order o2 = new Order(102);
+        o2.addProduct(p3);
+
+        c1.placeOrder(o1);
+        c1.placeOrder(o2);
+
+        o1.showProducts();
+        o2.showProducts();
+    }
+}

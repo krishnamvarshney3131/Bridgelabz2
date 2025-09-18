@@ -1,0 +1,33 @@
+import java.util.*;
+
+class Patient {
+    String name;
+    List<Doctor> doctors = new ArrayList<>();
+    Patient(String name) { this.name = name; }
+}
+
+class Doctor {
+    String name;
+    List<Patient> patients = new ArrayList<>();
+    Doctor(String name) { this.name = name; }
+    void consult(Patient p) {
+        patients.add(p);
+        p.doctors.add(this);
+        System.out.println("Doctor " + name + " consults Patient " + p.name);
+    }
+}
+
+class Hospital {
+    String name;
+    List<Doctor> doctors = new ArrayList<>();
+    List<Patient> patients = new ArrayList<>();
+    Hospital(String name) { this.name = name; }
+    void addDoctor(Doctor d) { doctors.add(d); }
+    void addPatient(Patient p) { patients.add(p); }
+}
+
+public class Problem3 {
+    public static void main(String[] args) {
+        Hospital h = new Hospital("City Hospital");
+
+        Do
